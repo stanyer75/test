@@ -1,38 +1,10 @@
 <?php
 
+require 'functions.php';
+require 'task.php';
 
-    class Task{ //setup task class
+$pdo = connectToDb();
 
-        public $description; // create description of class
-        public $completed = false; //var to see if commpleted or not
+$tasks = fetchAllTasks($pdo);
 
-        public function __construct($description)   //builds the class and setter
-        {
-            $this->description = $description;
-        }
-
-
-        public function complete()      //function that can be called to make completed as true
-        {
-            $this->completed = true;
-        }
-
-
-        public function isComplete()
-        {
-            return $this -> completed;
-        }
-    }
-
-
-    $tasks = [
-        new Task ('got to the store'),
-        new Task ('finish work'),
-        new Task ('Clean my room')
-    ];
-    
-    $tasks[0] -> complete();
-
-
-
-    require 'index.view.php';
+require 'index.view.php';
