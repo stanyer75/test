@@ -13,8 +13,7 @@
 
 
     <body>
-
-        <ul>
+        <h1>My Tasks</h1>
 
             <?php foreach ($tasks as $task) : ?>
 
@@ -30,7 +29,7 @@
             <?php endforeach; ?>
             
         
-        </ul>
+        
 
     </body>
 
