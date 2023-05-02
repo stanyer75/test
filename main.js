@@ -1,67 +1,42 @@
 'use strict';
 
-let username = {
+class Item {
+    constructor(name, category){
+        this.name = name;
+        this.category = category;
+    }
 
-    name: 'anthony',
-    email: 'example@example.com'
-};
+    static maxItems = 10;
 
-username = {
-    name: 'Ashley',
-    email: 'ashley@example.com'
-};
+    static getHelperText(){
+        return 'add items to your list'
+    }
 
-/* function init() {
-
-          //var email = 'nvbrvber'
-    document.getElementById('output').innerHTML = `${username.name} (${username.email})`; 
-} */
-
-/* const init = (name,isTrue) => {
-    document.getElementById('output').innerHTML = `${username.name} (${username.email})`;
-} */
-
-
-
-/* function nameString(){
-    return`${username.name}(${username.email})`
+    getDetails(){
+        return `${this.name} - ${this.category}`;
+    }
 }
-document.getElementById('output').innerHTML = nameString() */
 
-/* const nameString = name => `${name} (${username.email})`
-document.getElementById('output').innerHTML = nameString('Anthony') */
+class PurchasedItem extends Item {
+    constructor(name, category, price){
+        super(name, category);
+        this.price = price;
 
-
-
-let users = [
-    {
-        name: 'Andrew',
-        email: 'andrew@example.com'
-    },
-    {
-        name: 'Ashley',
-        email: 'ashley@example.com'
     }
-]
 
-let names = []
-/* 
-users.forEach(function(user) {
-    names.push(user.name);
-}); */
-
-users.forEach(user => names.push(user.name))
-
-document.getElementById('output').innerHTML = names.join(', ')
-
-
-document.getElementById('btn').addEventListener ('click', function(){
-
+    getDetailsWithPrice(){
+        return `${this.name} - ${this.category} - $${this.price}`;
+    }
     
-    const getDetails = () => {
-        console.log(this);
-        return `The button id is ${this.getAttribute('id')}`;
+    static getNumberOfItems(){
+        return `3/ ${super.maxItems}`;
     }
+}
 
-    document.getElementById('output').innerHTML = getDetails();
-}) 
+/* let item = new Item('coffee', 'food');
+item.category = 'drinks';
+
+let purchasedItem = new PurchasedItem('sugar', 'food', '2.49');  */
+
+/* document.getElementById('output').innerHTML = Item.getHelperText(); */
+document.getElementById('output').innerHTML = PurchasedItem.getNumberOfItems();
