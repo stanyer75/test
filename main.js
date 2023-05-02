@@ -38,5 +38,8 @@ item.category = 'drinks';
 
 let purchasedItem = new PurchasedItem('sugar', 'food', '2.49');  */
 
-/* document.getElementById('output').innerHTML = Item.getHelperText(); */
+/* document.getElementById('output').innerHTML = Item.getHelperText(); */               
+
+/*either or these, not both, output is variable set back in index and can be only called and set once*/ 
+
 document.getElementById('output').innerHTML = PurchasedItem.getNumberOfItems();
