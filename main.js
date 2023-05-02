@@ -1,67 +1,72 @@
 'use strict';
 /*
-const fruit = new Map();
 
-fruit.set(1, 'banna');
-fruit.set(2, 'apple');
-fruit.set(3, 'strawberry');
+//Example of imperative code
+let fruit = ['Banana', 'strawberry', 'Orange', 'Apple', 'grape', 'plum' ]
+
+
+let fruitsThatContainE = [];
+
+fruit.forEach(function(fruit){
+    if(fruit.includes('e')){
+        fruitsThatContainE.push(fruit);
+    }
+});
+
+document.getElementById('output').innerHTML = fruitsThatContainE.join(',  ') */
+
+/*
+
+//Declerative code
+let fruit = ['Banana', 'strawberry', 'Orange', 'Apple', 'grape', 'plum' ]
+
+let fruitsThatContainE = fruit.filter(f => f.includes('e'));
+document.getElementById('output').innerHTML = fruitsThatContainE.join(',  ')
+
+let users = [
+    { 
+        name: 'anthony',
+        email: 'email',
+        stars: 5
+    },
+    {
+        name: 'you',
+        email: 'you email',
+        stars: 9
+
+    }, 
+     {
+        name: 'me',
+        email: 'me email',
+        stars: 1
+     }
+]
+
+let totalStars = users.reduce((stars, user) => stars += user.stars, 0)
+document.getElementById('output2').innerHTML += 'TotalStars: ' + totalStars;
 */
-/*
-document.getElementById('output').innerHTML = fruit.get(2);
-
-fruit.delete(2);
 
 
-fruit.forEach(item => { 
-    document.getElementById('output2').innerHTML  += '<br>' + item;    
-}); */
-/*
-fruit.set (4, {
-    type: 'Orange',
-    colour: 'orange',
-    flavour: ' orangey'
-});
+// map filtering
+let users = [
+    { 
+        name: 'anthony',
+        email: 'email',
+        stars: 5
+    },
+    {
+        name: 'you',
+        email: 'you email',
+        stars: 9
 
-document.getElementById('output').innerHTML = fruit.get(4).flavour; */
+    }, 
+     {
+        name: 'me',
+        email: 'me email',
+        stars: 1
+     }
+]
 
+let userEmails = users.map(user => user.email);
+document.getElementById('output2').innerHTML += 'Emails: ' + userEmails.join(', ');
 
-
-
-
-const users = new Map(); // maps are on a value to key basis, much like a dictionary
-
-users.set({
-    name: 'Andrew',
-    email: 'email'
-
-}, function(user){
-    document.getElementById('output').innerHTML += `${user.name} (${user.email}) <br>`;
-});
-
-const userAnthony = {
-    name: 'Anthony',
-    email: 'email 2'
-}
-
-users.set(userAnthony, function(user){
-    document.getElementById('output2').innerHTML += `${user.email} (${user.name}) <br>`;
-});
-
-users.forEach((value, key) => {
-    value(key)
-});
-
-let userAnthonyExists = users.has(userAnthony);
-
-console.log('userAnthonyExists', userAnthonyExists);
-
-
-const fruit = new Set(); // sets only contain values, no keys like maps do 
-
-fruit.add('banna') // cannot have duplicate value however
-fruit.add('Apple')
-fruit.add('Strawberry')
-
-fruit.forEach(value => {
-    document.getElementById('output3').innerHTML += '<br>' + value
-});
